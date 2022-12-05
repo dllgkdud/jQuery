@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery16 - 폼 컨트롤 선택자</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        div {
+            margin: 20px auto;
+        }
+        div > label {
+            display: block;
+            width: 100px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <article id="joinFrm">
+        <div>
+            <label for="userId" class="item">아이디*</label>
+            <input id="userId" type="text">
+        </div>
+        <div>
+            <label for="pwd" class="item">암호*</label>
+            <input id="pwd" type="password">
+        </div>
+        <div>
+            <label for="pwdConfirm" class="item">암호 확인*</label>
+            <input id="pwdConfirm" type="password">
+        </div>
+        <div>
+            <label for="userName" class="item">이름*</label>
+            <input id="userName" type="text">
+        </div>
+        <input type="button" id="regBtn" value="회원가입">
+    </article>
+    <br><hr><br>
+    <div id="msg"></div>
+    <script>
+    $(document).ready(function(){
+        var pass = "no";
+        var source;
+        //jQuery로 placeholder처럼 처리하는 구문
+        $("input#userName").click(function(){
+            $("input#userName").append("");
+        });
+        $(":button").click(function(){
+            $(":text, :password").each(function(){
+                if($(this).val()=="") {
+                    alert("데이터를 입력하십시오.");
+                    return false;
+                } else {
+                    pass = "yes";
+                }
+            });
+        });
+        if(pass=="yes") {
+            source = { "id" : $("#userId").val(), "pw" : $("#pwd").val(), "name" : $("#userName").val() }
+            $.ajax({
+                url : "ajaxJoin.do?member="+source,
+                //get으로 전송 시 url에 전부 기입하고, post로 전송 시 data=source를 따로 기입해야한다.
+                type : "get",
+                dataType: "json",
+                success : function(res) {
+                    $("#msg").text(res);
+                },
+                error : function(res, status, err) {
+                    alert(res+"가 "+err+"로 인해 정상적으로 처리되지 못했습니다.");
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>

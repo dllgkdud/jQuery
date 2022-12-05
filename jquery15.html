@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery15 - 속성 선택자 응용</title>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<body>
+    <secton class="container">
+        <div class="imgList">
+            <img src="a.jpg" alt="">
+            <img src="b.png" alt="">
+            <img src="c.gif" alt="">
+        </div>
+        <nav class="gnb">
+            <ul>
+                <li><a href="company.jsp">회사소개</a></li>
+                <li><a href="proList.do">제품</a></li>
+                <li><a href="serList.jsp?sno=1">서비스</a></li>
+                <li><a href="boardList.do">커뮤니티</a></li>
+                <li><a href="consulList.do?sid=admin">온라인상담</a></li>
+            </ul>
+        </nav>
+        <nav id="quick">
+            <ul class="menu"></ul>
+        </nav>
+    </secton>
+    <script>
+    $(document).ready(function(){
+        $(".imgList img").width(300).height(200);
+        $(".imgList img[src$='.jpg'], img[src$='.png'], img[src$='.gif']").css("border", "2px solid #eee");
+        $(".gnb a[href*='.do']").each(function(){
+            $("#quick .menu").append("<span><a href='"+$(this).attr("href")+"'>"+$(this).text()+"</a>&nbsp;&nbsp;</span>")
+        });
+    });
+    </script>
+</body>
+</html>

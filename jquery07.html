@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery07 - 처음/마지막 요소</title>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<style>
+    .selectedstyle {
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        background-color: #faf;
+    }
+</style>
+<body>
+    <script>
+    $(document).ready(function(){
+        $("td:first, td:last").addClass("selectedstyle");
+        $(".result1").text("처음 요소 : "+$("td:first").text());
+        $(".result2").text("마지막 요소 : "+$("td:last").text());
+    });
+    </script>
+    <section class="container">
+        <table>
+            <tr>
+                <td>todo-list</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox">오전 6시 기상</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox">리눅스마스터 2급 준비</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox">팀 프로젝트 회의록 작성</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox">개인 포트폴리오 1차 마무리</td>
+            </tr>
+        </table>
+    </section>
+    <br><hr><br>
+    <div class="result1"></div>
+    <div class="result2"></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery08 - 홀수/짝수 요소</title>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<style>
+    table {
+        table-layout: auto;
+        width: 30%;
+    }
+</style>
+<body>
+    <script>
+    //단, 인덱스 지정 시 odd, even은 0부터 시작하지만 nth:child(2n), nth:child(2n+1)은 1부터 시작한다.
+    $(document).ready(function(){
+        //메서드 체이닝
+        $("td:odd").css("color", "#fff").css("fontWeight", "800").css("backgroundColor", "#1fd").css("font-size", "20px");
+        //속성 열거법
+        $("td:even").css({"color":"#a11", "font-size":"20pt"});
+    });
+    </script>
+    <section class="container">
+        <table>
+            <tr>
+                <td>홀수1</td>
+            </tr>
+            <tr>
+                <td>짝수1</td>
+            </tr>
+            <tr>
+                <td>홀수2</td>
+            </tr>
+            <tr>
+                <td>짝수2</td>
+            </tr>
+            <tr>
+                <td>홀수3</td>
+            </tr>
+            <tr>
+                <td>짝수3</td>
+            </tr>
+        </table>
+    </section>
+</body>
+</html>

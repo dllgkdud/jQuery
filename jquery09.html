@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery09 - 특정 순서 요소</title>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<style>
+    table {
+        table-layout: auto;
+        width: 30%;
+    }
+</style>
+<body>
+    <section class="container">
+        <table>
+            <tr>
+                <td>홀수1</td>
+                <td>짝수1</td>
+                <td>홀수2</td>
+                <td>짝수2</td>
+                <td>홀수3</td>
+                <td>짝수3</td>
+            </tr>
+        </table>
+    </section>
+    <script>
+    $(document).ready(function(){
+        //각 tr 태그 내 td 태그에 속한 요소 중에서 구분
+        $("td:nth-child(3n)").css({"color":"red", "fontWeight":"900"});
+        //전체 td 요소 중에서 구분
+        $("td:eq(3)").css({"backgroundColor":"pink", "color":"#fff"});
+    });
+    </script>
+</body>
+</html>

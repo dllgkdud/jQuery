@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery06 - 인접요소</title>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<body>
+    <section class="container">
+        <p>
+            <em>T</em>
+            <a>I</a>
+            <em>E</em>
+            <a>D</a>
+            <b>U</b>
+            <b>P</b>
+            <a>R</a>
+            <em>I</em>
+            <em>G</em>
+            <a>H</a>
+            <b>T</b>
+            <a>N</a>
+            <b>O</b>
+            <em>W</em>
+        </p>
+    </section>
+    <br><hr><br>
+    <div>
+        <span>prev + next로 검색된 엘리먼트 : </span>
+        <span class="result1"></span>
+        <span>prev ~ next로 검색된 엘리먼트 : </span>
+        <span class="result2"></span>
+    </div>
+    <script>
+    $(function(){
+        var $n = $("em + a");
+        $n.each(function(){
+            $(".result1").append($(this).text());
+        });
+        $(".result1").append("<p> 선택된 요소 : "+$n.length+"</p>");
+
+        var $a = $("em ~ b");
+        var len = 0;
+        $a.each(function(){
+            len++;
+            $(".result2").append($(this).text());
+        });
+        $(".result2").append("<p> 선택된 요소 : "+len+"</p>");
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery11 - 자식(처음, 마지막) 요소</title>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<body>
+    <section class="container">
+        <div>
+            <span>일</span><span>이</span><span>삼</span><span>사</span>
+        </div>
+        <div>
+            <span>오</span><span>육</span><span>칠</span><span>팔</span>
+        </div>
+    </section>
+    <script>
+    $(document).ready(function(){
+        $("span:first-child, span:last-child").css("backgroundColor", "#fdd");
+    });
+    </script>
+</body>
+</html>

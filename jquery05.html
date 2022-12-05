@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery05 - 접근제어</title>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<body>
+    <section class="container">
+        <p>
+            <em>Empty bottles</em>
+            <em>Party begins</em>
+            <span><em>Nobody comes</em></span>
+        </p>
+        <div>
+            <em>Smile</em>
+            <a href=""><em><ins>Sad</ins></em></a>
+            <span><em>Anger</em></span>
+        </div>
+    </section>
+    <br><hr><br>
+    <div>
+        <span>ancestor &nbsp; descendant로 검색된 엘리먼트</span>
+        <span class="result1"></span>
+    </div>
+    <div>
+        <span>parent &gt; child로 검색된 엘리먼트</span>
+        <span class="result2"></span>
+    </div>
+    <div>
+        <span>.html로 검색된 엘리먼트</span>
+        <span class="result3"></span>
+    </div>
+    <script>
+    $(function(){
+        var res1 = "", res2 = "", res3 = "";
+        //for(var key in obj) {}와 같은 의미
+        $("p em").each(function(){
+            res1 += $(this).text();
+        });
+        $(".result1").text(res1);
+
+        $("div>em").each(function(){
+            res2 += $(this).text();
+        });
+        $(".result2").text(res2);
+
+        $("div>a").each(function(){
+            res3 += $(this).html();
+        });
+        //.text - html 태그도 text로 인식
+        //.html - html 태그를 포함하여 출력
+        $(".result3").html(res3);
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery03 - 복수 요소 선택</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+    $(document).ready(function(){
+        var $dt = $("span, .select, p");
+        $(".container").append("<div class='res'>요소 : "+$dt.length+"</div>")
+    });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <span>simple</span>
+        <div class="select">select</div>
+        <div><input type="radio" class="select">select radio</div>
+        <p><input type="radio" class="select">select radio2</p>
+    </div>
+    <div class="container">
+
+    </div>
+</body>
+</html>

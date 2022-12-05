@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery14 - 속성 선택자 요소</title>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<style>
+    .spotlight {
+        background-color: #ff6;
+    }
+    .redtext {
+        color: #f44;
+    }
+    .bluetext {
+        color: #44f;
+    }
+    .largetext {
+        font-size: 20pt;
+    }
+    .italictext {
+        font-style: italic;
+    }
+    .box {
+        border: 2px solid #666;
+    }
+</style>
+<body>
+    <section class="container">
+        <div>
+            <span data="simpletext1">Apple</span>
+            <span class="simpletext2">Pie</span>
+            <span data="complextext1">Add 5 eggs,</span>
+            <span data="complextext2">500g milk</span>
+            <span data="complex">50minute in Oven</span>
+        </div>
+    </section>
+    <script>
+    $(function(){
+        $("[data]").addClass("spotlight");
+        $("[data^='comple']").addClass("redtext");
+        //$("[data|='comple']").addClass("redtext");
+        $("[data$='text1']").addClass("box");
+        $("[data*='text']").addClass("largetext");
+        //$("[data~='text']").addClass("largetext");
+    });
+    </script>
+</body>
+</html>
