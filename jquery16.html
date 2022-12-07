@@ -33,7 +33,7 @@
         </div>
         <div>
             <label for="userName" class="item">이름*</label>
-            <input id="userName" type="text">
+            <input id="userName" type="text" value="이름">
         </div>
         <input type="button" id="regBtn" value="회원가입">
     </article>
@@ -45,7 +45,7 @@
         var source;
         //jQuery로 placeholder처럼 처리하는 구문
         $("input#userName").click(function(){
-            $("input#userName").append("");
+            $("input#userName").val("");
         });
         $(":button").click(function(){
             $(":text, :password").each(function(){

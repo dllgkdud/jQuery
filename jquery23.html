@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery23 - 기본 메소드(val())</title>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<body>
+    <section class="container">
+        <article class="data">
+            <input type="text" size="50" title="ID 입력" placeholder="ID" id="m_id">
+            <button id="reset">취소</button>
+            <button id="submit">전송</button>
+            <br><br><hr><br>
+            <div id="console"></div>
+        </article>
+    </section>
+    <script>
+    $(document).ready(function(){
+        //#reset 클릭 시 #m_id의 입력 값 삭제
+        $("#reset").click(function(){
+            $("#m_id").val("");
+        });
+        //#submit 클릭 시 null 검증 후 존재하는 값을 #console에 출력(text)
+        $("#submit").click(function(){
+            if($("#m_id").val()!="") {
+                //report($("#m_id").val());
+                $("#console").text("입력값 : "+$("#m_id").val());
+            } else {
+                alert("값을 입력하십시오");
+            }
+        });
+        /*
+        function report(msg) {
+            $("#console").text(msg);
+        }
+        */
+    });
+    </script>
+</body>
+</html>

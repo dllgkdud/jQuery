@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery21 - 클래스 존재 확인(hasClass) 선택자</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        .rbor {
+            border: 2px solid #f11;
+            transition-duration: 1s;
+        }
+        .gbor {
+            border: 2px solid #1f1;
+            transition-duration: 2s;
+        }
+        .bbor {
+            border: 2px solid #11f;
+            transition-duration: 3s;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <article class="data">
+            <button>변경</button>
+            <img src="https://placeimg.com/500/300/any/grayscale" alt="" class="img1 rbor">
+            <img src="https://placeimg.com/500/300/any/grayscale" alt="" class="img1 gbor">
+            <img src="https://placeimg.com/500/300/any/grayscale" alt="" class="img1 bbor">
+        </article>
+    </section>
+    <script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            $(".img1").each(function(){
+                //this는 각 개체에 개별적으로 적용되도록 설정, ".클래스"는 동일한 전체 객체에 선언되어 동시에 적용
+                if($(this).hasClass("rbor")) {
+                    $(this).removeClass("rbor").addClass("gbor");
+                } else if($(this).hasClass("gbor")) {
+                    $(this).removeClass("gbor").addClass("bbor");
+                } else {
+                    $(this).removeClass("bbor").addClass("rbor");
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>

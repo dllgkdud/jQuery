@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery18 - 어트리뷰트 removeAttr() 선택자</title>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<body>
+    <section class="container">
+        <article class="data">
+            <div class="imgFrame">
+                <button>어트리뷰트 값 제거</button>
+                <img src="https://placeimg.com/300/300/any/grayscale" alt="any image1">
+            </div>
+            <div class="imgFrame">
+                <button id="make">어트리뷰트 값 추가</button>
+                <img alt="any image2">
+            </div>
+        </article>
+    </section>
+    <script>
+    $(document).ready(function(){
+        //버튼 클릭 시 다음 요소(img)의 src를 제거
+        $("button").click(function(){
+            $(this).next().removeAttr("src");
+        });
+        //버튼 클릭 시 다음 요소(img)의 src를 추가
+        $("button#make").click(function(){
+            $(this).next().attr("src", "https://placeimg.com/300/300/any/grayscale");
+        });
+    });
+    </script>
+</body>
+</html>

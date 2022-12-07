@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery20 - 변경(toggle) 선택자<</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+    .gbor {
+        border: 2px solid #add;
+        transition-duration: 2s;
+    }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <article class="data">
+            <button>변경</button>
+            <img src="https://placeimg.com/500/300/any/grayscale" alt="" class="img1">
+            <img src="https://placeimg.com/500/300/any/grayscale" alt="" class="img1">
+        </article>
+    </section>
+    <script>
+    $(document).ready(function(){
+        //버튼 클릭 시, img 요소에 .gbor 교대 적용
+        $("button").click(function(){
+            $(".img1").toggleClass("gbor");
+        });
+    });
+    </script>
+</body>
+</html>

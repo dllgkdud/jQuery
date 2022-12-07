@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery22 - 기본 메소드(text(), html())</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        #console {
+            color: #222;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <article class="data">
+            <p><strong>이러쿵</strong><em>저러쿵</em></p>
+            <p>속닥속닥<button>북적북적</button><small>소곤소곤</small>수근수근<span id="text">숙덕숙덕</span></p>
+            <p><q>반</q>짝<q>반</q>짝</p>
+            <br><hr><br>
+            <div id="console"></div>
+        </article>
+    </section>
+    <script>
+    $(document).ready(function(){
+        var sw = true;
+        //p 요소 클릭 시 클릭된 요소의 태그를 포함해 #console에 텍스트로 출력
+        $("p").click(function(){
+            //$("불러올 요소").getter방식($("가져올 요소").setter방식)
+            $("#console").text($(this).html());
+        });
+    });
+    </script>
+</body>
+</html>
