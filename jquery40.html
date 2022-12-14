@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery40 - 이벤트 타겟 메소드(bind(), on())</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        ul, li { list-style: none; }
+        .container { clear: both; width: 1280px; margin: 0 auto; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { clear: both; width: 100vw; height: 100vh; overflow: hidden; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data { clear: both; }
+        .data:after {  content: ""; clear: both; display: block; }        
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("img").bind("dblclick", function(event){
+                var $t = $(event.target);
+                //더블 클릭 시 크기 조정
+                $t.width($t.width()/2);
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>이벤트 타켓 메소드</h2>
+        <article class="data">
+            <img src="sample.jpg" alt="pic1">
+        </article>
+    </section>
+</body>
+</html>

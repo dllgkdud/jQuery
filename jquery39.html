@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery39 - 범용 이벤트 메소드(bind(), on())</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        ul, li { list-style: none; }
+        .container { clear: both; width: 1280px; margin: 0 auto; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { clear: both; width: 100vw; height: 100vh; overflow: hidden; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data { clear: both; }
+        .data:after {  content: ""; clear: both; display: block; }        
+    </style>
+    <script>
+        $(document).ready(function(){
+            //on(), bind()은 여러 이벤트를 적용할 수 있다. - 버전 1.9 이하는 bind(), 버전 1.9 이상은 on() 적용 가능
+            $("img").bind({
+                mouseover:function(){ $(this).attr("src", "https://placeimg.com/500/300/any"); },
+                mouseout:function(){ $(this).attr("src", "https://placeimg.com/500/300/any/grayscale"); },
+                click:function(){ $(this).alert("흑백을 컬러로 변환시켜 드립니다."); }
+            });
+
+            //개별 메소드 적용 시
+            /*
+            $("img").mouseover(function(){
+                $(this).attr({ "src":"https://placeimg.com/500/300/any" });
+            });
+            $("img").mouseout(function(){
+                $(this).attr({ "src":"https://placeimg.com/500/300/any/grayscale" });
+            });
+            $("img").click(function(){
+                alert("흑백을 컬러로 변환시켜 드립니다.");
+            });
+            */
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>범용 이벤트 적용 메소드</h2>
+        <article class="data">
+            <img src="https://placeimg.com/500/300/any/grayscale" alt="pic1">
+        </article>
+    </section>
+</body>
+</html>

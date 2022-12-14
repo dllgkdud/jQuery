@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery37 - 크기 with margin 메소드(outerWidth(), outerHeight())</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        .container { clear: both; width: 1280px; margin: 0 auto; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { clear: both; width: 100vw; height: 100vh; overflow: hidden; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data { clear: both; }
+        .data:after {  content: ""; clear: both; display: block; }
+        p { width: 300px; height: 100px; margin: 20px; text-align: center; background-color: #a11; cursor: pointer; }
+    </style>
+    <script>
+        $(document).ready(function(){
+            var p = $("p:first");
+            $("#res1").text("width : "+p.outerWidth()+", margin include width : "+p.outerWidth(true));
+            $("#res2").text("width : "+p.outerHeight()+", margin include height : "+p.outerHeight(true));
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>요소 크기 with margin 메소드</h2>
+        <article class="data">
+            <div id="res1"><p></p></div>
+            <div id="res2"></div>
+        </article>
+    </section>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery44 - 이벤트 제어 메소드(mousemove())</title>
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+    <style>
+        ul, li { list-style: none; }
+        .container { clear: both; width: 1280px; margin: 0 auto; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { clear: both; width: 100vw; height: 100vh; overflow: hidden; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data { clear: both; }
+        .data:after {  content: ""; clear: both; display: block; }
+        img { border: 2px solid while; }  
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("img").mousemove(function(event){
+                $("p:first").html(event.clientX+", "+event.clientY);
+                $("p.middle").html(event.screenX+", "+event.screenY);
+                $("p:last").html(event.pageX+", "+event.pageY);
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>이벤트 제어 메소드 - click, dblclick, mouseover, mouseout, 
+            mousedown, mouseup, mouseenter, mouseleave, hover, mousemove, contextmenu, wheel 등</h2>
+        <article class="data">
+            <div><img src="./sample.jpg" width="300" alt="pic1"></div>
+            <p></p> <p class="middle"></p>  <p></p>
+        </article>
+    </section>
+</body>
+</html>

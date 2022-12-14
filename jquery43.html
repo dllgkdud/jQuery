@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery43 - 토글 메소드(toggle())</title>
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+    <style>
+        ul, li { list-style: none; }
+        .container { clear: both; width: 1280px; margin: 0 auto; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { clear: both; width: 100vw; height: 100vh; overflow: hidden; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data { clear: both; }
+        .data:after {  content: ""; clear: both; display: block; }
+        div { display: block; width: 100px; height: 100px; border: 1px solid #222; text-align: center; line-height: 90px; }    
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("div").toggle(
+                //div 클릭 시 배경색을 번갈아가며 적용
+                function(event) { $(event.target).css("background", "yelllow").width(400); },
+                function(event) { $(event.target).css("background", "green").width(600); },
+                function(event) { $(event.target).css("background", "skyblue").width(400); },
+                function(event) { $(event.target).css("background", "deeppink").width(200); }
+            );
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>이벤트 타켓 메소드</h2>
+        <article class="data">
+            <img src="sample.jpg" width="300px"; alt="pic1">
+            <div>이벤트</div>
+        </article>
+    </section>
+</body>
+</html>

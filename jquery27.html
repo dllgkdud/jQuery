@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery27 - 추가 메소드(slice())</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        * { margin: 0; padding: 0; }
+        body, html { width: 100%; }
+        ul { list-style: none; }
+        a { text-decoration: none; }
+        .container { clear:both; width:1000px; margin:20px auto; } 
+        .container:after { content:""; display:block; clear:both; }
+        .data { clear: both; }
+        .data:after { content:""; display:block; clear:both; }
+        div { width: 100px; height: 100px; margin: 5px; float: left; border: 2px black solid; }
+    </style>
+    <script>
+    $(function(){
+        $("button").click(function(){
+            var div = $(".data > div");
+            div.slice(2, 4).css("background", "red");
+            div.slice(5).css("background", "green");
+        });
+    });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>선택자 추가 메소드</h2>
+        <article class="data">
+            <button>색칠</button>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </article>
+    </section>
+</body>
+</html>

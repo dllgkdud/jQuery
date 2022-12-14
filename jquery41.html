@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery41 - 이벤트 타겟 일회용 메소드(one())</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        ul, li { list-style: none; }
+        .container { clear: both; width: 1280px; margin: 0 auto; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { clear: both; width: 100vw; height: 100vh; overflow: hidden; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data { clear: both; }
+        .data:after {  content: ""; clear: both; display: block; }        
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("img").one("dblclick", function(event){
+                //var $t = $(this); 로도 사용할 수 있으나 나중에 이벤트 삭제가 어렵다.
+                var $t = $(event.target);
+                //더블 클릭 시 크기 조정
+                $t.width($t.width()/2);
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>이벤트 타켓 메소드</h2>
+        <article class="data">
+            <img src="sample.jpg" width="500px"; alt="pic1">
+        </article>
+    </section>
+</body>
+</html>

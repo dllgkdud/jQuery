@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery29 - 선택 메소드(find())</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        * { margin: 0; padding: 0; }
+        body, html { width: 100%; }
+        ul { list-style: none; }
+        a { text-decoration: none; }
+        .container { clear: both; width: 1280px; margin: 0 auto; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { clear: both; width: 100vw; height: 100vh; overflow: hidden; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data::after {  content: ""; clear: both; display: block; } }
+        ul { float: left; margin: 5px; font-size: 16px; padding: 5px; font-weight: bolder;}
+        
+    </style>
+    <script>
+    $(document).ready(function(){
+        //
+        $("p").click(function(){
+            $(this).find("em").css({"color":"green", "font-size":"20px", "font-weight":"600"});
+            $(this).find("a").css({"background-color":"yellow", "border":"3px solid pink", "text-decoration":"underline"});
+        });
+    });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>선택자 선택 메소드</h2>
+        <article class="data">
+           <div>p 엘리먼트 중 <em>이태릭 스타일의</em></div>
+           <p>글자 <b>색깔을 </b><em>초록색으로</em> 변경하려 한다.</p>
+           <p>또한 배경 <b>색깔을 </b><a>노란색으로</a> 변경한다.</p>
+        </article>
+    </section>
+</body>
+</html>

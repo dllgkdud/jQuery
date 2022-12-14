@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery33 - 변경 메소드(replaceWith())</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        .container { clear: both; width: 1280px; margin: 0 auto; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { clear: both; width: 100vw; height: 100vh; overflow: hidden; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data:after {  content: ""; clear: both; display: block; }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $(".box").click(function(){
+                $(this).replaceWith("<h1 class='text' style='text-decoration: underline;'>zero</h1>");
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>요소 변경 메소드</h2>
+        <article id="data">
+            <div class="box one">one</div>
+            <div class="box two">two</div>
+            <div class="box three">three</div>
+            <div class="box four">four</div>
+        </article>
+    </section>
+</body>
+</html>

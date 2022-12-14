@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery30 - 추가 메소드(append(),appendTo(),prepend(),prependTo())</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        .container { clear: both; width: 1280px; margin: 0 auto; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { clear: both; width: 100vw; height: 100vh; overflow: hidden; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data:after {  content: ""; clear: both; display: block; } }
+    </style>
+    <script>
+        $(document).ready(function(){
+            var tour = ["미국", "영국", "일본", "벨기에", "스페인"]
+            var bucket = ["기", "살", "달", "한"]
+            $(tour).each(function(index, value){
+                //$("#list1").append("<li>"+value+"</li>");
+                $("<li>"+value+"</li>").appendTo($("#list1"));
+            });
+            $.each(bucket, function(index, value){
+                //$("list2").prepend("<li>"+value+"</li>");
+                $("<li>"+value+"</li>").prependTo($("#list2"));
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>선택자 추가 메소드</h2>
+        <article class="data">
+            <div>
+                <b>여행장소</b>
+                <ul id="list1"></ul>
+            </div>
+            <div>
+                <b>버킷리스트</b>
+                <ul id="list2"></ul>
+            </div>
+        </article>
+    </section>
+</body>
+</html>

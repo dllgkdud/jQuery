@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery32 - 추가 메소드(wrap(),wrapAll())</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        .container { clear: both; width: 1280px; margin: 0 auto; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { clear: both; width: 100vw; height: 100vh; overflow: hidden; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data:after {  content: ""; clear: both; display: block; } }
+        .border { margin: 10px; border: 3px solid #fcc; }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("p").click(function(){
+                $("p").wrap("<div class='border'>interest</div>");
+                //$("p").wrapAll("<div class='border'">interest</div>);
+                    //$("p").wrap($(".indata1"));
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>요소 추가 메소드</h2>
+        <article id="data">
+            <h3>jQuery class</h3>
+            <p>React</p>
+            <div><p>VUE.js</p></div>
+            <p>angular</p>
+            <p>polymer</p>
+        </article>
+    </section>
+</body>
+</html>

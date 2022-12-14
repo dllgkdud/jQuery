@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery34 - 제거 메소드(empty(), remove())</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        .container { clear: both; width: 1280px; margin: 0 auto; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { clear: both; width: 100vw; height: 100vh; overflow: hidden; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data:after {  content: ""; clear: both; display: block; } }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $("p").empty();
+            });
+            $("#btn2").click(function(){
+                $("li:empty").remove();
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>요소 삭제 메소드</h2>
+        <article id="data">
+            <button id="btn1">엘리먼트 비우기</button>
+            <button id="btn2">엘리먼트 지우기</button>
+            <div><p>one</p></div>
+            <p><span>two</span></p>
+            <p>three</p>
+            <ul>
+                <li>더미1</li>
+                <li>더미2</li>
+                <li></li>
+                <li>더미3</li>
+                <li>더미4</li>
+                <li></li>
+            </ul>
+            <div>four</div>
+        </article>
+    </section>
+</body>
+</html>

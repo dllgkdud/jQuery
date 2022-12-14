@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery31 - 추가 메소드(before(),insertBefore(),after(),insertAfter())</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        .container { clear: both; width: 1280px; margin: 0 auto; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { clear: both; width: 100vw; height: 100vh; overflow: hidden; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data:after {  content: ""; clear: both; display: block; } }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("<div class='container'>최종 정리 - 리눅스마스터 2급</div>").insertAfter($("header"));
+            $("<div class='container'>문제은행 알고리즘 정리</div>").insertBefore($("footer"));
+        });
+    </script>
+</head>
+<body>
+    <header><h1>오늘 공부 : </h1></header>
+    <section class="container">
+        <h2>선택자 추가 메소드</h2>
+        <article id="data1">더미데이터</article>
+    </section>
+    <footer><h1><em>Copyright @ 2022.12.09</em></h1></footer>
+</body>
+</html>
