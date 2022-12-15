@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery49 - 이벤트 키보드 메소드(keyup(), keydown(), keypress())</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        * { margin:0; padding:0; }
+        body, html { width:100%; height:100%; }
+        ul, li { list-style: none; }
+        a { text-decoration:none; }
+        .container, .page { width:100%; height:100%; margin: 10px; }
+        .container:after { content: ""; clear: both; display: block; }
+        h1 { margin-bottom: 30px; }
+        .page { background-repeat:no-repeat; background-size:cover; background-position: center center; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data { clear: both; }
+        .data:after { content: ""; clear: both; display: block; }
+        textarea { resize: none; padding: 10px; }
+        button { width: 60px; height: 30px; }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#msgBox").keyup(function(){
+                var inLength = $(this).val().length;
+                var remain = 100 - inLength;
+                $("h2").html(remain);
+                if(remain >= 0) {
+                    $("h2").css("color", "blue");
+                } else {
+                    $("h2").css("color", "red");
+                    $(this).css("text-decoration", "underline");
+                    $(".sms").html("SMS 문자");
+                }
+            });
+            $("button").click(function(){
+                $("#msgBox").val("");
+                $("h2").html("100").css("color", "black");
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>이벤트 키보드 메소드 - keyup, keydown, keypress</h1>
+        <article class="data">
+            <div class="message">
+                <p class="sms">일반 문자</p>
+                <h2>100</h2>
+                <textarea name="msgBox" id="msgBox" cols="100" rows="10"></textarea>
+            </div>
+            <button>전송</button>
+        </article>
+    </section>
+</body>
+</html>

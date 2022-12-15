@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery48 - 이벤트 창 메소드(resize())</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        * { margin:0; padding:0; }
+        body, html { width:100%; height:100%; }
+        ul, li { list-style: none; }
+        a { text-decoration:none; }
+        .container, .page { width:100%; height:100%; margin: 10px; }
+        .container:after { content: ""; clear: both; display: block; }
+        .page { background-repeat:no-repeat; background-size:cover; background-position: center center; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data { clear: both; }
+        .data:after { content: ""; clear: both; display: block; }
+    </style>
+    <script>
+        $(document).ready(function(){
+            var wd0 = screen.width;
+            $(window).resize(function(){
+                var wd = $(window).width();
+                //PC 규격(960 이상)
+                //적용대상을 다르게 지정할 경우 window를 document로 변경할 수도 있음
+                if(wd>=960 || wd==wd0) {
+                    $(".title").css({"color":"red", "font-size":"48px"});
+                    $(".comment").css("color", "red").css("font-size", "20px");
+                    $("img").attr("src", "sample.jpg").width(900);
+                //Tablet 규격(768 ~ 959)
+                } else if(wd>=768) {
+                    $(".title").css({"color":"green", "font-size":"36px"});
+                    $(".comment").css("color", "green").css("font-size", "18px");
+                    $("img").attr("src", "sample.jpg").width(700);
+                //Mobile 규격(767 이하)
+                } else {
+                    $(".title").css({"color":"blue", "font-size":"24px"});
+                    $(".comment").css("color", "blue").css("font-size", "16px");
+                    $("img").attr("src", "sample.jpg").width(500);
+                }
+            //이벤트 강제 적용(트리거)
+            }).resize();
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h2>이벤트 창 메소드 - resize</h2>
+        <article class="data">
+            <h3 class="title">샘플 페이지</h3>
+            <p class="comment">샘플 페이지 연습 글입니다.</p>
+            <img src="sample.jpg" alt="sample">
+        </article>
+    </section>
+</body>
+</html>
