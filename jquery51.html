@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery51 - 효과 메소드(show(), hide(), toggle())</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        * { margin:0; padding:0; }
+        body, html { width:100%; height:100%; }
+        ul, li { list-style: none; }
+        a { text-decoration:none; }
+        .container, .page { width:100%; height:100%; margin: 10px; }
+        .container:after { content: ""; clear: both; display: block; }
+        h1 { margin-bottom: 30px; }
+        .page { background-repeat:no-repeat; background-size:cover; background-position: center center; }
+        .page:after { content: ""; clear: both; display: block; }
+        .data { clear: both; }
+        .data:after { content: ""; clear: both; display: block; }
+        .lst, .btn { margin: 30px auto; width: 600px; clear: both; }
+        .lst li { float: left; margin-left: 10px; display: none; }
+        .txt { clear: both; text-align: center; }
+        button { display: block; float: left; margin: 30px; padding: 10px; outline: 0; border: 0; border-radius: 10px; cursor: pointer; }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $(".lst li").show(1000, function(){
+                    $(".lst li").css({"text-align":"center"});
+                    $(".txt").text("리스트 박스가 나타나는 중입니다...");
+                });
+            });
+            $("#btn2").click(function(){
+                $(".lst li").hide("slow", function(){
+                    $(".txt").text("리스트 박스가 숨겨지는 중입니다...");
+                });
+            });
+            $("#btn3").click(function(){
+                $(".lst li").toggle("slow", function(){
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>효과 메소드 - show, hide, toggle</h1>
+        <p>toggle은 버전 1.9이후에 이벤트 메소드에서 사라지고, 효과 메소드에서 show+hide 동시 수행 기능으로 추가되었다.</p>
+        <article class="data">
+            <div class="btn">
+                <button id="btn1">show</button>
+                <button id="btn2">hide</button>
+                <button id="btn3">toggle</button>
+            </div>
+            <ul class="lst">
+                <li class="menu1"><a href="">메뉴1</a></li>
+                <li class="menu2"><a href="">메뉴2</a></li>
+                <li class="menu3"><a href="">메뉴3</a></li>
+                <li class="menu4"><a href="">메뉴4</a></li>
+            </ul>
+            <div class="txt">버튼 테스트</div>
+        </article>
+    </section>
+</body>
+</html>
