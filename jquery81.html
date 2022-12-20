@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 80 : jQuery 데이터 바인딩 - ajax</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script> 
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+    .container { clear:both; width:1000px; margin:20px auto; } 
+    .container:after { content:""; display:block; clear:both; }
+    .data { clear: both; }
+    .data:after { content:""; display:block; clear:both; } 
+    </style>
+</head>
+<body>
+    <h2>Ajax 문서 전송 메소드 - ajaxSetup()</h2>
+    <section class="container">
+        <article class="data">
+            <button type="button" id="btn1">전송 데이터</button>
+            <br><br>
+            <div id="result"></div>
+        </article>
+    </section>
+    <br><hr><br>
+    <script>
+    $(document).ready(function(){
+        //ajaxSetup은 특정 파일로 데이터 결과값을 지정받을 때 필요한 명령어
+        $("#btn1").click(function(){
+            $.ajaxSetup({url: "test.txt",
+                success: function(result) {
+                    $("#result").html(result);
+                }
+            });
+            //전송 전 해당 파일과 전송 관련 정보를 객체에 저장
+            //저장 객체 선언
+            var currentRequests = {};
+            //전송객체 생성(이미지 객체 생성)
+
+            //마지막에 ajax를 선언해야 명령 구동이 가능해진다.
+            $.ajax();
+        });
+    });
+    </script>
+    </div>
+</body>
+</html>

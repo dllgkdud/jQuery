@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 78 : jQuery 데이터 바인딩 - ajax</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script> 
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- ==는 text의 구조만 똑같으면 형식까지 구분하지 않는다.(10 == 10.0 <- 수행 가능 ) -->
+    <!-- ===는 text의 구조와 형식까지 구분하여 처리한다.(10 === 10.0 <- 수행 불가능 ) -->
+    <style>
+    .container { clear:both; width:1000px; margin:20px auto; } 
+    .container:after { content:""; display:block; clear:both; }
+    .data { clear: both; }
+    .data:after { content:""; display:block; clear:both; } 
+    </style>
+</head>
+<body>
+    <h2>Ajax 문서 전송 메소드(배열객체) - serializeArray()</h2>
+    <section class="container">
+        <article class="data">
+            <form>
+                <select name="job" id="">
+                    <option>Employment</option>
+                    <option>Founded</option>
+                </select>
+                <br><br>
+                <select name="position" multiple="multiple">
+                    <option>FrontEnd</option>
+                    <option>SI</option>
+                    <option selected="selected">SM</option>
+                </select>
+                <br>
+                <input type="checkbox" name="area" value="수도권" id="ch1">
+                <label for="ch1">수도권</label>
+                <input type="checkbox" name="area" value="비수도권" id="ch2" checked="checked">
+                <label for="ch2">지방</label>
+                <br>
+                <input type="radio" name="part" value="개발자" id="r1" checked="checked">
+                <label for="r1">개발자</label>
+                <input type="radio" name="part" value="비개발자" id="r2">
+                <label for="r2">비개발자</label>
+                <br><br>
+                <button type="submit" id="btn1">전송 데이터</button>
+            </form>
+            <br>
+            <div id="result"></div>
+        </article>
+    </section>
+    <br><hr><br>
+    <script>
+    $(document).ready(function(){
+        function dataValues(){
+            $("form").submit(function(event){
+                var data = $(this).serializeArray();
+                $("#result").text(data);
+                console.log(data);
+                event.preventDefault();
+            });
+        }
+        $("#btn1").on("click", function() { dataValues(); });
+    });
+    </script>
+    </div>
+</body>
+</html>
